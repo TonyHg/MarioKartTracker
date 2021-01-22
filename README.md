@@ -1,4 +1,4 @@
-# recrutementing1-3ie-2021-tony.heng
+# MarioKartTracker
 
 ![Mario Kart](/MarioKart/screenshot.png)
 [WEB]
