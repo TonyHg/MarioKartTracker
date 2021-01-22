@@ -1,6 +1,6 @@
 # MarioKartTracker
 
-![Mario Kart](/MarioKart/screenshot.png)
+![Mario Kart](/screenshot.png)
 [WEB]
 This project was made for 3IE recruitment. This is a website that show the ranking of the members of 3IE in Mario Kart Deluxe.
 
