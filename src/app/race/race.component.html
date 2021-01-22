@@ -1,0 +1,14 @@
+<div class="container race-container" (click)="open()">
+  <div class="row pt-2 pb-1">
+      <div class="col-5">
+          <div class="race-thumbnail">
+              <img src="{{ race.track.vignette }}"/>
+          </div>
+      </div>
+      <div class="col-7 d-flex flex-column">
+          <span class="race-title">{{ race.track.name }}</span>
+          <span class="race-date" [ngClass]="{'dark': darkMode}">{{ race.date | date: 'dd MMM yyyy - H:mm' }}</span>
+          <span class="race-engine">{{ race.engineClass.name }}</span>
+      </div>
+  </div>
+</div>

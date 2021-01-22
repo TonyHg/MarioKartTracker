@@ -1,0 +1,60 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row mb-4 d-flex flex-column" id="select-engine">
+            <span class="form-title">Sélectionnez une vitesse:</span>
+            <div class="d-flex" id="engines">
+                <div *ngFor="let engine of engines" class="engine-container">
+                    <input type="radio" id="engine-{{ engine.id }}" name="engine" value="{{ engine.id }}" ngModel />
+                    <label for="engine-{{ engine.id }}" class="engine-elt">{{ engine.name }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 d-flex flex-column">
+            <span class="form-title">Sélectionnez une course:</span>
+            <div class="d-flex selection track-select">
+                <div *ngFor="let track of tracks">
+                    <input type="radio" id="track-{{ track.id }}" name="track" value="{{ track.id }}" ngModel required>
+                    <label class="mr-3 mb-3" for="track-{{ track.id }}">
+                    <img src="{{ track.vignette }}"/>{{ track.name }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 d-flex flex-column">
+            <span class="form-title">Sélectionnez les joueurs:</span>
+            <div class="d-flex selection players-select">
+                <div *ngFor="let player of players">
+                    <input type="checkbox" id="player-{{ player.id }}" name="player" value="{{ player.id }}">
+                    <label class="mr-3 mb-3" for="player-{{ player.id }}" (click)="onSwitchPlayer(player)">
+                    <img src="{{ player.avatar }}"/>{{ player.firstname }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 d-flex flex-column" *ngIf="selectedPlayers.length > 0">
+            <span class="form-title">Résultat de la course:</span>
+            <div class="d-flex selection players-rank">
+                <div *ngFor="let player of selectedPlayers">
+                    <div class="selected-player d-flex flex-column mr-3">
+                        <img src="{{ player.avatar }}"/>
+                        <div class="selected-player-bg d-flex flex-column">
+                            <span class="selected-player-name">{{ player.firstname }}</span>
+                            <div class="input-group inline-group">
+                                <button class="rank-btn" type="button" (click)="onMinus(player)">
+                                <
+                                </button>
+                                <input class="form-control quantity" min="1" max="12" id="quantity-{{player.id}}" name="quantity-{{player.id}}" [value]="player.rank" (input)="onKey($event, player)" type="number">
+                                <button class="rank-btn" type="button" (click)="onPlus(player)">
+                                >
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="invalid-form-msg" *ngIf="isValid() && !isSelectedEmpty()">Chaque joueur doit avoir une position unique!</div>
+        <div class="row d-flex justify-content-center">
+            <button type="submit" id="submit-btn" [disabled]="isValid() || f.invalid" [ngClass]="{'disable-btn': isValid }">Créer la course!</button>
+            <div id="create-race-toast" [ngClass]="{'show': showToast }">Course crée!</div>
+        </div>
+    </form>
+</div>

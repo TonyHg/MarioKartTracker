@@ -1,0 +1,12 @@
+{
+  "/api": {
+      "target": "https://mariokart-recrutement.3ie.fr",
+      "secure": false,
+      "changeOrigin": true
+  },
+  "/pictures": {
+      "target": "https://mariokart-recrutement.3ie.fr",
+      "secure": false,
+      "changeOrigin": true
+  }
+}

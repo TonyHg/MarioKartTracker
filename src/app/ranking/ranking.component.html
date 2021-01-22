@@ -1,0 +1,18 @@
+<div class="container ranking-container" (click)="open()">
+    <div class="row mb-3 d-flex flex-nowrap" id="rank-{{ playerRank }}">
+        <div class="col-1 ranking-index font-mario">
+            {{ playerRank }}
+        </div>
+        <div class="d-none d-sm-flex col-2 ranking-picture">
+            <img src="{{ player.avatar }}" class="m-auto"/>
+        </div>
+        <div class="col-lg-5 col-sm-6 ranking-detail d-flex flex-column">
+            <span class="ranking-name">{{ player.firstname }}</span>
+            <span class="ranking-races" [ngClass]="{'dark': darkMode}">{{ player.nbRaces }} courses</span>
+            <span class="ranking-ratio">Ratio: {{ player.ratio | number:'.3' }}</span>
+        </div>
+        <div class="col-lg-4 col-sm-5 ranking-score font-mario">
+            {{ player.score }}
+        </div>
+    </div>
+</div>

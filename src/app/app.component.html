@@ -1,0 +1,78 @@
+<!-- Toolbar -->
+<div class="toolbar position-static" role="banner">
+  <span class="font-mario">Mario Kart</span>
+    <div class="spacer"></div>
+    <div id="darkmode-switcher" (click)="onSwitchTheme()">{{ darkModeText }}</div>
+</div>
+
+<div class="content container" role="main" id="main" [ngClass]="{'dark': darkMode}" #main>
+  <div class="row">
+    <!-- RANKING -->
+    <div class="col-12 col-lg-7">
+      <div class="card-container">
+        <div class="card-head d-flex">
+          <span class="card-title">CLASSEMENT</span>
+          <span class="card-subtitle ml-auto mt-auto pb-1">Actualisé le: {{ lastRankingUpdate | date:"dd MMM yyyy - H:mm"}}</span>
+        </div>
+        <div class="card" [ngClass]="{'dark': darkMode}">
+          <app-ranking *ngFor="let player of players; let i = index"
+                    [player]="player"
+                    [playerRank]="i + 1"
+                    [darkMode]="darkMode"></app-ranking>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="col-12 col-lg-4 offset-lg-1">
+      <div class="card-container">
+        <div class="card-head d-flex">
+          <span class="card-title">HISTORIQUE DES PARTIES</span>
+        </div>
+        <div class="card" [ngClass]="{'dark': darkMode}">
+          <div class="ml-2">Filtrer l'historique par coupe:</div>
+          <div class="filter d-flex">
+            <div class="cup d-flex" *ngFor="let cup of cups" [ngClass]="{'cup-selected': isCupSelected(cup)}">
+              <img src="{{ cup.picture }}" class="m-auto" (click)="onSwitchFilter(cup)" />
+            </div>
+          </div>
+          <div class="ml-2">Filtrer l'historique par vitesse:</div>
+          <div class="filter b-border d-flex">
+            <div class="engine d-flex" *ngFor="let engine of engines" [ngClass]="{'cup-selected': isEngineSelected(engine)}">
+              <span class="m-auto" (click)="onSwitchFilterEngine(engine)">{{ engine.name }}</span>
+            </div>
+          </div>
+          <app-race *ngFor="let race of races"
+                    [race]="race"
+                    [cups]="cups"
+                    [darkMode]="darkMode"></app-race>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card-container">
+        <div class="card-head d-flex">
+          <span class="card-title">AJOUTER UNE COURSE</span>
+        </div>
+        <div class="card px-3" id="form-card" [ngClass]="{'dark': darkMode}">
+          <app-create-race [players]="players"
+                           [tracks]="tracks"
+                           [engines]="engines"
+                           (onRefreshRaces)="onRefreshRaces()"
+                           (scrollToElement)="scrollToElement(main)"></app-create-race>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer class="text-center text-lg-start">
+  <div class="text-center p-3">
+    Recrutement 3IE - Promo 2023 - Tony Heng
+  </div>
+</footer>

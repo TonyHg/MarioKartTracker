@@ -1,0 +1,51 @@
+@import '../app.component.scss';
+
+.modal-header {
+  background-color: $red;
+  color: $white;
+  button {
+    color: $white;
+  }
+  &.dark {
+    border: none;
+  }
+}
+
+.modal-body {
+  &.dark {
+    background-color: $black;
+    color: $white;
+    border:none;
+  }
+}
+
+.details {
+  font-size: 24px;
+  .red {
+    color: $red;
+  }
+}
+
+.last-races, .top-rivals {
+  overflow-x: scroll;
+  text-align: center;
+  font-size: 16px;
+  img {
+    border-radius: 10px;
+  }
+}
+
+.top-rivals img {
+  height: 100px;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 4px;
+  border-radius: 10px;
+  background-color: rgba(255,0,0,0.10);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}

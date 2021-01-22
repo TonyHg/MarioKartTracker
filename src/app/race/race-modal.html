@@ -1,0 +1,23 @@
+<div class="modal-header" [ngClass]="{'dark': darkMode}">
+    <h4 class="modal-title">{{ race.track.name }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" [ngClass]="{'dark': darkMode}">
+    <div class="d-flex flex-column mb-3 details">
+        <span><b>Course: </b> <span class="red">{{ race.track.name }}</span></span>
+        <span><b>Coupe: </b> <span class="red">{{ cup.name }}</span></span>
+        <span><b>Mode: </b> <span class="red">{{ race.engineClass.name }}</span></span>
+        <span><b>Date: </b> <span class="red">{{ race.date | date: 'dd MMM yyyy - H:mm' }}</span></span>
+    </div>
+    <div class="d-flex flex-column mb-3 details">
+        <span>Joueurs:</span>
+        <div class="players d-flex">
+            <div *ngFor="let player of race.players" class="mr-3">
+                <img src="{{ player.avatar }}" />
+                <p>{{ player.position }} - {{ player.firstname }}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+@import '../app.component.scss';
+
+.race-container {
+    cursor: pointer;
+    &:hover {
+        background-color: $pink;
+    }
+}
+
+.race-thumbnail img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.race-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.race-date {
+    font-style: italic;
+    color: $grey;
+    position: relative;
+    font-size: 14px;
+    top: -7px;
+
+    &.dark {
+        color: $silver;
+    }
+}
+
+.race-engine {
+    margin-top: auto;
+    font-weight: bold;
+    align-self: flex-end;
+}

@@ -1,0 +1,33 @@
+<div class="modal-header" [ngClass]="{'dark': darkMode}">
+    <h4 class="modal-title">{{ player.firstname }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" [ngClass]="{'dark': darkMode}">
+    <div class="d-flex flex-column mb-3 details">
+        <span><b>Score: </b> <span class="red">{{ player.score }}</span></span>
+        <span><b>Ratio: </b> <span class="red">{{ player.ratio | number:'.3' }}</span></span>
+        <span><b>Coupe favorite: </b> <span class="red">{{ player.favoriteCup.name }}</span></span>
+        <span><b>Course favorite: </b> <span class="red">{{ player.favoriteTrack.name }}</span></span>
+    </div>
+    <div class="d-flex flex-column mb-3 details">
+        <span>Dernières courses:</span>
+        <div class="last-races d-flex">
+            <div *ngFor="let race of races.slice(0,5)" class="mr-3">
+                <img src="{{ race.track.vignette }}" />
+                <p>{{ race.track.name }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-3 details">
+        <span>Top rivals:</span>
+        <div class="top-rivals d-flex">
+            <div *ngFor="let rival of rivals.slice(0,5)" class="mr-3">
+                <img src="{{ rival.avatar }}" />
+                <p>{{ rival.firstname }}</p>
+            </div>
+        </div>
+       
+    </div>
+</div>

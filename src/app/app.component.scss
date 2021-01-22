@@ -1,0 +1,170 @@
+/* COLORS */
+$red: #E60012;
+$lightred:rgba(255,0,0,0.56);
+$pink: rgba(255,0,0,0.20);
+
+$white: #f9f9fa;
+$lightgrey: #bfc5c9;
+$grey: #5B5A5A;
+$black: #374047;
+
+$gold: #FCD00C;
+$silver: #DCDCDC;
+$bronze: #EE6823;
+
+/* FONTS */
+@font-face {
+    font-family: "MarioKart";
+    src: url("../assets/fonts/SuperMario256.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ropa";
+    src: url("../assets/fonts/RopaSans-Regular.ttf") format("truetype");
+}
+
+* {
+  font-family: 'Ropa', sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color:$red;
+    color: white;
+    font-weight: 600;
+
+    & span {
+        margin: 0 24px;
+        font-size: 24px;
+    }
+  }
+
+  .font-mario {
+      font-family: 'MarioKart';
+  }
+
+#main {
+  background: url(../assets/img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 5% 10%;
+  &.dark {
+    background: url(../assets/img/bg-darkmode.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+#darkmode-switcher {
+  cursor: pointer;
+  &:hover {
+    color: $black;
+  }
+}
+
+.card {
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  padding: 16px 0;
+  margin-bottom: 32px;
+  overflow-y: scroll;
+  background-color: rgba(255,255,255,0.8);
+  transition: all 2s;
+  &.dark {
+    background-color: rgba(55, 64, 71,0.8)!important;
+    color: $white!important;
+    .ranking-races {
+      color: $white!important;
+    }
+  }
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: $red;
+}
+
+.card-subtitle {
+  font-style: italic;
+  font-size: 14px;
+  color: $grey;
+}
+
+#form-card {
+  overflow-y: unset;
+  overflow-x: hidden;
+  height: auto;
+}
+
+.filter {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+  &.b-border {
+    border-bottom: 3px solid $red;
+  }
+  .cup, .engine {
+    cursor: pointer;
+    width: 16%;
+    padding: 3px;
+    margin-bottom: 3px;
+    margin-left: 1px;
+    border-radius: 10px;
+    img {
+      width: 90%;
+    }
+
+    &:hover {
+      background-color: $pink;
+    }
+    &.cup-selected {
+      background-color: $red;
+      color: $white;
+    }
+  }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $red;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* FOOTER */
+footer {
+  background-color: $red;
+  color: $white;
+}
+
+/* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+  }
+
+  @media screen and (max-width: 575px) {
+
+  }
